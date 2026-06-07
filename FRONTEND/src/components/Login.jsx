@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
     setError('');
     setIsLoading(true);
     try {
-      const response = await axios.post('https://reset-backend-hyqf.onrender.com/login', { email, password });
+      const response = await axios.post('https://password-reset-flow-vmb8.onrender.com/login', { email, password });
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard');
     } catch (err) {
@@ -26,14 +26,14 @@ const Login = () => {
   };
 
   return (
-    
+
     <div className="container-fluid min-vh-100 text-light p-0 m-0">
       <div className="row justify-content-center align-items-center min-vh-100 g-0">
         <div className="col-12 col-md-8 col-lg-5 col-xl-4 p-3">
-          
-          
+
+
           <div className="card glass-card text-light p-4 rounded-4 animate__animated animate__fadeIn">
-            
+
             <div className="text-center mb-4">
               <h2 className="h4 fw-bold">Welcome Back</h2>
               <p className="text-light opacity-75 small">Please login to your account.</p>
@@ -44,28 +44,28 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label className="form-label fw-semibold">Email</label>
-                
-                <input 
-                  type="email" 
-                  className="form-control glass-input" 
-                  value={email} 
+
+                <input
+                  type="email"
+                  className="form-control glass-input"
+                  value={email}
                   placeholder="name@example.com"
-                  onChange={(e) => setEmail(e.target.value)} 
-                  required 
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
               <div className="mb-4">
                 <label className="form-label fw-semibold">Password</label>
-                <input 
-                  type="password" 
-                  className="form-control glass-input" 
-                  value={password} 
+                <input
+                  type="password"
+                  className="form-control glass-input"
+                  value={password}
                   placeholder="Enter your password"
-                  onChange={(e) => setPassword(e.target.value)} 
-                  required 
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
               </div>
-              
+
               <button type="submit" className="btn btn-primary w-100 fw-bold py-2 rounded-3" disabled={isLoading}>
                 {isLoading ? 'Logging in...' : 'Login'}
               </button>

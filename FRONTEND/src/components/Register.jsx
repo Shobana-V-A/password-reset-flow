@@ -19,7 +19,7 @@ const Register = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('https://reset-backend-hyqf.onrender.com/register', { name, email, password });
+      const response = await axios.post('https://password-reset-flow-vmb8.onrender.com/register', { name, email, password });
       setMessage(response.data.message);
       setName('');
       setEmail('');
@@ -35,14 +35,14 @@ const Register = () => {
     <div className="container-fluid min-vh-100 text-light p-0 m-0">
       <div className="row justify-content-center align-items-center min-vh-100 g-0">
         <div className="col-12 col-md-8 col-lg-5 col-xl-4 p-3">
-          
+
           <div className="card glass-card text-light shadow-lg p-4 rounded-4 animate__animated animate__fadeIn">
-            
+
             {/* 3. Added the Back Button right here at the top of the card */}
             <div className="text-start mb-2">
-              <button 
+              <button
                 type="button"
-                onClick={() => navigate(-1)} 
+                onClick={() => navigate(-1)}
                 className="btn btn-link text-light text-decoration-none p-0 opacity-75 custom-back-btn"
               >
                 ← Back
@@ -70,7 +70,7 @@ const Register = () => {
                 <label className="form-label fw-semibold">Password</label>
                 <input type="password" className="form-control glass-input" value={password} onChange={(e) => setPassword(e.target.value)} required minLength="6" />
               </div>
-              
+
               <button type="submit" className="btn btn-primary w-100 fw-bold py-2 rounded-3" disabled={isLoading}>
                 {isLoading ? 'Creating Account...' : 'Register'}
               </button>

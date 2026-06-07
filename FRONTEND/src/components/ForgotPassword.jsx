@@ -22,7 +22,7 @@ const ForgotPassword = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('https://reset-backend-hyqf.onrender.com/forgot-password', { email });
+      const response = await axios.post('https://password-reset-flow-vmb8.onrender.com/forgot-password', { email });
       setMessage(response.data.message);
     } catch (err) {
       setError(err.response?.data?.message || 'Something went wrong. Please try again.');
